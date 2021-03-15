@@ -1,5 +1,9 @@
 from flask import Flask
-app = Flask(__name__)
+from transformers import AutoTokenizer
+import json
+import os
+
+app = Flask(__name__, static_url_path='/static')
 
 
 @app.route('/')
