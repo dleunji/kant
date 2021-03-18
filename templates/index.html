@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
     <title>Ghostwriter Kant</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
 </head>
 
 <body>
@@ -26,12 +26,15 @@
                 </div>
             </div>
             <div class="prefix-box">
-                <div class="prefix-container">
-                    <form id="prefix-form" action="/essay">
-                        <span class="icon"><i class="fa fa-search"></i></span>
-                        <input type="text" id="prefix" placeholder="It starts with...">
-                    </form>
-                </div>
+                <form id="prefix-form" action="/essay">
+                    <input type="text" id="prefix" placeholder="It starts with...">
+                    <div class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="cancel-btn">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </form>
             </div>
         </div>
 
