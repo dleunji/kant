@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+body{
+    background-image: url('../images/background.jpeg');
+    background-size : cover;
+    background-attachment: fixed;
+}
+.page {
+    background-color :#C1B5A9;
+    width:50%;
+    padding:4rem;
+    margin: 10rem auto;
+    border-radius: 3rem;
+}
+.header{
+    display: flex;
+}
+.title{
+    font-family: 'Tangerine';
+    font-size: 9rem;
+    justify-content: center;
+}
+.kant {
+    width: 9rem;
+}
+
+.explanation {
+    display: flex;
+}
+.help{
+    margin-left: 3rem;
+    font-family: 'Caveat',cursive;
+    font-size : 1.4rem;
+}
+
+.prefix-container {
+    width : 30rem;
+    position: relative;
+}
+.prefix-container input#prefix{
+    width : 30rem;
+    background:#2b303b;
+    border:none;
+    float:left;
+    color:#63717f;
+}
+
+.prefix-container .icon {
+    position: absolute;
+    top:50%;
+    margin-left:17rem;
+    margin-top:17rem;
+    z-index:1;
+    color:#4f5b66;
+}
