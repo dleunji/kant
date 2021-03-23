@@ -41,8 +41,7 @@ body{
     font-size : 1.4rem;
 }
 .essay {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin: 0 3rem 0 3rem;
     font-family: 'Caveat',cursive;
     font-size : 1.4rem;
 }

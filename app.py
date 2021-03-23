@@ -15,8 +15,10 @@ gpt2.load_gpt2(sess)
 def main():
     if request.method == 'POST':
         prefix = request.form['prefix']
+        if prefix == "":
+            return render_template('index.html', result=None)
         essay = gpt2.generate(sess,
-                              prefix=prefix, length=200, return_as_list=True)[0]
+                              prefix=prefix, length=300, return_as_list=True)[0]
         print(essay)
         data = {"essay": essay}
         return render_template('index.html', result=data)
