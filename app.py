@@ -1,19 +1,28 @@
 from flask import Flask, request, render_template, jsonify, Response
-"""from transformers import AutoTokenizer"""
 import requests
 import gpt_2_simple as gpt2
 import json
 import os
+# from transformers import AutoTokenizer
+
 app = Flask(__name__, static_url_path='/static')
-
-model_name = "/checkpoint/run1"
+# model_name = "checkpoint/run1"
 sess = gpt2.start_tf_sess()
+gpt2.load_gpt2(sess)
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def main():
-    return render_template("index.html")
+    if request.method == 'POST':
+        prefix = request.form['prefix']
+        essay = gpt2.generate(sess,
+                              prefix=prefix, length=200, return_as_list=True)[0]
+        print(essay)
+        data = {"essay": essay}
+        return render_template('index.html', result=data)
+    else:
+        return render_template('index.html', result=None)
 
 
-# @app.route('/gpt2', methods=['POST'])
-# def gpt2():
+if __name__ == '__main__':
+    app.run(port=5000)

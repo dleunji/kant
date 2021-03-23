@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style.css">
     <title>Ghostwriter Kant</title>
-    <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
+    <script src="https://kit.fontawesome.com/fb1f288996.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,9 @@
         </div>
         <div class="contents">
             <div class="explanation">
-                <img class="kant" src="../static/images/kant.jpg">
+                <div class="img">
+                    <img class="kant" src="../static/images/kant.jpg">
+                </div>
                 <div class="help">
                     Hello I'm Immanuel Kant.<br>
                     It was pretty hard to understand my papers, right?<br>
@@ -25,18 +28,37 @@
                     Just let me know how to get started!<br>
                 </div>
             </div>
-            <div class="prefix-box">
-                <form id="prefix-form" action="/essay">
-                    <input type="text" id="prefix" placeholder="It starts with...">
-                    <div class="search-btn">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="cancel-btn">
-                        <i class="fas fa-times"></i>
-                    </div>
-                </form>
+            <div class="search-box">
+                <div class="prefix-box">
+                    <form method="POST" action="/" id="prefix-form">
+                        <input type="text" id="prefix" name="prefix" placeholder="It starts with..." required>
+                        <div class="search-btn" id="search" onclick="submit()">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div type="button" class="cancel-btn" id="reset" onclick="reset()">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+        {% if result %}
+        <div class="essay">
+            <p>Iloveyou</p>
+            {{result.essay}}
+        </div>
+        {% endif %}
+    </div>
+    </div>
+    <script>
+        function reset() {
+            var prefix = document.getElementById("prefix");
+            prefix.value = "";
+        }
+        function submit() {
+            document.getElementById('prefix-form').submit();
+        }
+    </script>
 
 </body>
 
