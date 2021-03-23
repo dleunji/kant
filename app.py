@@ -3,6 +3,7 @@ import requests
 import gpt_2_simple as gpt2
 import json
 import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 # from transformers import AutoTokenizer
 
 app = Flask(__name__, static_url_path='/static')
@@ -27,4 +28,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host="0.0.0.0")

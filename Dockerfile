@@ -1,6 +1,7 @@
-FROM python:3.8-slim-buster
+FROM tensorflow/tensorflow:1.15.0-py3
+RUN mkdir -p /app
 WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
 COPY . .
-CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 5000
+CMD ["flask", "run", "--host", "0.0.0.0","--without-threads"]
