@@ -4,10 +4,8 @@ import gpt_2_simple as gpt2
 import json
 import os
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
-# from transformers import AutoTokenizer
 
 app = Flask(__name__, static_url_path='/static')
-# model_name = "checkpoint/run1"
 sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 
