@@ -76,7 +76,7 @@ body{
 .prefix-box .search-btn{
     position: absolute;
     top:50%;
-    right: 4rem;
+    left : 70%;
     transform: translateY(-50%);
     height:50px;
     width:50px;
@@ -92,7 +92,7 @@ body{
 .prefix-box .cancel-btn{
     position: absolute;
     top:50%;
-    right : 1rem;
+    right: -2%;
     transform: translateY(-50%);
     color:#fff;
     cursor: pointer;
