@@ -40,7 +40,7 @@ http://164.90.254.84:5000/ 를 통해 체험하실 수 있습니다.
 ✅ 영어만 사용가능합니다. <br>
 ✅ Finetuned Model을 직접 사용하기 때문에 로딩이 **매우** **매우** 오래 걸립니다. <br>
 ✅ Chrome 사용을 권장합니다<br>
-✅ `git clone`을 통한 로컬 구동은 어렵습니다. 용량의 문제로 Finetuned Model이  Github에 업로드하지 않았기 때문입니다.<br>
+✅ `git clone`을 통한 로컬 구동은 어렵습니다. 용량의 문제로 Finetuned Model을 Github에 업로드하지 않았기 때문입니다.<br>
 
 
 ## Prerequisites
