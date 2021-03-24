@@ -32,8 +32,6 @@ sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 ...
 essay = gpt2.generate(sess,prefix=prefix, length=300, return_as_list=True)[0]
-<br>
-<br>
 ```
 ## Getting Started 
 
