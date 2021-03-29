@@ -17,7 +17,7 @@
 <br>
 
 ## How to Make
-1. [GPT-2 simple model](https://github.com/minimaxir/gpt-2-simple)에 칸트의 '순수이성비판'을 학습시켰습니다.<br>
+1. [GPT-2 simple model](https://github.com/minimaxir/gpt-2-simple)에 칸트의 '순수이성비판'을 학습시켜 모델을 생성합니다.<br>
 원활한 데이터 학습을 위해 Google colab을 사용하였습니다.<br>
 https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing <br>
 
