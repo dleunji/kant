@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div class="loader"></div>
     <div class="page">
         <div class="header">
             <div class="title">Ghostwriter Kant</div>
@@ -30,7 +31,7 @@
             </div>
             <div class="search-box">
                 <div class="prefix-box">
-                    <form method="POST" action="/" id="prefix-form">
+                    <form method="POST" action="/" id="prefix-form" onsubmit="onSubmit()">
                         <input type="text" id="prefix" name="prefix" placeholder="It starts with..." required>
                         <div class="search-btn" id="search" onclick="submit()">
                             <i class="fas fa-search"></i>
@@ -60,8 +61,11 @@
         function submit() {
             document.getElementById('prefix-form').submit();
         }
+        function onSubmit() {
+            $('#loader').show();
+            return true;
+        }
     </script>
-
 </body>
 
 </html>
