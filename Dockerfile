@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.15.0-py3
+FROM tensorflow/tensorflow:1.15.5-gpu-py3
 RUN mkdir -p /app
 WORKDIR /app
 COPY . .
