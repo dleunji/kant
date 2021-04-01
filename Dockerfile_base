@@ -1,0 +1,6 @@
+FROM tensorflow/tensorflow:1.15.0-py3
+RUN mkdir -p /app/checkpoint
+WORKDIR /app
+COPY ./checkpoint /app/checkpoint
+EXPOSE 5000
+CMD ["bash"]

@@ -1,5 +1,6 @@
-FROM tensorflow/tensorflow:1.15.0-py3
-RUN mkdir -p /app
+FROM dleunji/kantmodel
+RUN mkdir /app/checkpoint
+RUN mv /app/run1 /app/checkpoint
 WORKDIR /app
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
