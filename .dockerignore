@@ -27,5 +27,4 @@ Temporary Items
 venv/
 __pycache__/
 !README.md
-Dockerfile_base
 checkpoint/
