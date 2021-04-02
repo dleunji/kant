@@ -1,6 +1,6 @@
 FROM tensorflow/tensorflow:1.15.5-gpu-py3
 RUN mkdir -p /app/checkpoint
 WORKDIR /app
-COPY ./checkpoint /app/checkpoint
+COPY checkpoint /app/checkpoint
 EXPOSE 5000
 CMD ["bash"]
