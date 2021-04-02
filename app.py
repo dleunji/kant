@@ -17,7 +17,7 @@ def main():
         if prefix == "":
             return render_template('index.html', result=None)
         essay = gpt2.generate(sess,
-                              prefix=prefix, length=87, return_as_list=True)[0]
+                              prefix=prefix, length=88, return_as_list=True)[0]
         print(essay)
         data = {"essay": essay}
         return render_template('index.html', result=data)
