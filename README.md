@@ -19,7 +19,10 @@
 ## How to Make
 1. [GPT-2 simple model](https://github.com/minimaxir/gpt-2-simple)에 칸트의 '순수이성비판'을 학습시켜 모델을 생성합니다.<br>
 원활한 데이터 학습을 위해 Google colab을 사용하였습니다.<br>
-https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing <br>
+~~https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing~~ <br>
+
+    ✓ PREFIX, SECTION, CHAPTER과 같은 불필요한 내용을 제거하기 위해 텍스트파일을 다시 전처리하여 모델을 생성하였습니다.
+    https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce?usp=sharing<br>
 
 2. 해당 모델을 통해 length=300인 글을 추출하였습니다.
 
@@ -38,7 +41,7 @@ essay = gpt2.generate(sess,prefix=prefix, length=300, return_as_list=True)[0]
 http://164.90.254.84:5000/ 를 통해 체험하실 수 있습니다.
 
 ✅ 영어만 사용가능합니다. <br>
-✅ Finetuned Model을 직접 사용하기 때문에 로딩이 **매우** **매우** 오래 걸립니다. <br>
+✅ Finetuned Model을 직접 사용하기 때문에 로딩 시간이 소요됩니다. <br>
 ✅ Chrome 사용을 권장합니다<br>
 ✅ `git clone`을 통한 로컬 구동은 어렵습니다. 용량의 문제로 Finetuned Model을 Github에 업로드하지 않았기 때문입니다.<br>
 
@@ -54,11 +57,8 @@ tensorflow==1.15.0
 ## Deployment 
 
 - Docker 
-- DigitalOcean
+- Ainize
 <br>
-
-✅ 높은 용량으로 배포가 불안정합니다. 이로 인해 다중 접속이 어려우니 참고하시길 바랍니다.
-
 
 ## Acknowledgments
 
@@ -72,14 +72,19 @@ tensorflow==1.15.0
 
 * 텐서플로우를 처음 활용하여 많은 부분 헤맸습니다. 서툴지만 이를 활용하여 제작과 배포를 해냈다는 기쁨을 느끼고, <br>단순히 라이브러리를 익히는 수준이 아니라 수학적으로 접근하며 딥러닝에 대해 심화적으로 공부하고자 합니다.
 * 프로젝트 추후 개선점
-    - ~~화면 크기와 브라우저에 따른 호환성 개선~~ <br> 
+    - 화면 크기와 브라우저에 따른 호환성 개선 <br> 
     버튼 위치 개선
-    - ~~도커 환경 개선~~<br>
-    hugging face에 모델을 저장하거나 Ainize에 배포하는 방식을 고안하였으나 기술적 한계로 중단
-    - ~~로딩 시 로딩에 대한 안내와 문구 생성(ex. *I'm thinking...Wait a moment.*)~~<br>
-    로딩 스피너 도입
+    - 도커 환경 개선<br>
+    - 로딩 시 로딩에 대한 안내와 문구 생성(ex. *I'm thinking...Wait a moment.*)<br>
 
 
 ## Thanks To
 소프트웨어중심대학 공동해커톤과 해당 과제를 통해 한층 더 개발자로서 발전할 수 있었습니다. <br>
 이러한 기회를 주신 커먼컴퓨터와 멘토님들께 진심으로 감사의 인사를 드립니다.
+
+## 2021.04.05 개선 일지
+1. Ainize를 통해 배포함으로써 GPU를 통해 배포안정성과 속도가 급격히 개선되었습니다.(약 6초)
+
+2. 이외에도 체감되는 지연 시간을 줄이기 위해 로딩 바를 생성하였습니다. 내용과 적절히 어울리는 "I'm thinking "문구를 곁들여 프로그램과 어울리도록 하였습니다.
+
+3. 기존의 모델에 불필요한 텍스트가 섞여 있었습니다. 이를 개선하기 위해 파이썬을 통해 텍스트파일을 전처리한 후, 재학습하였습니다.
