@@ -20,9 +20,8 @@
 1. [GPT-2 simple model](https://github.com/minimaxir/gpt-2-simple)에 칸트의 '순수이성비판'을 학습시켜 모델을 생성합니다.<br>
 원활한 데이터 학습을 위해 Google colab을 사용하였습니다.<br>
 ~~https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing~~ <br>
-
-    ✓ PREFIX, SECTION, CHAPTER과 같은 불필요한 내용을 제거하기 위해 텍스트파일을 다시 전처리하여 모델을 생성하였습니다.
-    https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce?usp=sharing<br>
+PREFIX, SECTION, CHAPTER과 같은 불필요한 내용을 제거하기 위해 텍스트파일을 다시 전처리하여 모델을 생성하였습니다.
+https://colab.research.google.com/drive/1VLG8e7YSEwypxU-noRNhsv5dW4NfTGce?usp=sharing<br>
 
 2. 해당 모델을 통해 length=300인 글을 추출하였습니다.
 
@@ -37,8 +36,9 @@ gpt2.load_gpt2(sess)
 essay = gpt2.generate(sess,prefix=prefix, length=300, return_as_list=True)[0]
 ```
 ## Getting Started 
-
-http://164.90.254.84:5000/ 를 통해 체험하실 수 있습니다.
+```
+pip install gpt_2_simple
+```
 
 ✅ 영어만 사용가능합니다. <br>
 ✅ Finetuned Model을 직접 사용하기 때문에 로딩 시간이 소요됩니다. <br>
