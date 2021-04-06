@@ -1,4 +1,5 @@
 # Ghostwriter Kant
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://master-kant-dleunji.endpoint.ainize.ai/)<br>
 
 ![스크린샷 2021-03-24 오전 11 03 03](https://user-images.githubusercontent.com/46207836/112243495-00699c80-8c91-11eb-9da5-b46d10e61593.png)
 [임마누엘 칸트](https://ko.wikipedia.org/wiki/임마누엘_칸트)는 도덕, 이상, 형이상학 등 다양한 주제를 다루는 위대한 철학자압나다.<br>
@@ -65,8 +66,6 @@ tensorflow==1.15.0
 * 데이터 학습량이 부족한지, 칸트가 공허한 말을 자주 합니다. <br>하지만 현재로도 이미 버거운 상태이기 때문에, 추가적인 학습를 진행하지 않았습니다.
 
 * 백문이불여일견, 직접 서버에 프로젝트를 올리면서 **효율적인 서버 관리**의 중요성을 알게되었습니다.. 
-
-* 서버가 불안정해서 컨테이너를 주기적으로 restart 해야합니다. 개선 방안을 찾아봐야할 것 같습니다.
 
 * 최신 기술에 대한 안내는 주로 영어로 되어있으므로, 프로그래밍과 더불어 영어도 공부해야겠습니다.
 
