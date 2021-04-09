@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Ghostwriter Kant
-  description: Using gtp-2, create a philosophical paper like Immanuel Kant.<br> Just
+  description: Using GPT-2, create a philosophical paper like Immanuel Kant.<br> Just
     let him know how to get started.
   version: 1.0.0
 externalDocs:
