@@ -34,26 +34,30 @@
             </div>
             <div class="search-box">
                 <div class="prefix-box">
-                    <form method="POST" action="/" id="prefix-form">
-                        <input type="text" id="prefix" name="prefix" placeholder="It starts with..." required>
-                        <div class="search-btn" id="search" type="submit" onclick="submit()">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <div type="button" class="cancel-btn" id="reset" onclick="reset()">
-                            <i class="fas fa-times"></i>
-                        </div>
-                    </form>
+                    <!-- <form method="POST" action="/" id="prefix-form"> -->
+                    <input type="text" id="prefix" name="prefix" placeholder="It starts with..." required>
+                    <div class="search-btn" id="search" type="submit" onclick="submit()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div type="button" class="cancel-btn" id="reset" onclick="reset()">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <!-- </form> -->
                 </div>
             </div>
         </div>
-        {% if result %}
+        <!-- {% if result %}
         <div class="essay">
             <br>
             {{result.essay}}...
             <br><br><br>
             Now it's your turn!
         </div>
-        {% endif %}
+        {% endif %} -->
+        <br>
+        <div class ="essay">
+            <div class="result"></div>
+        </div>
     </div>
     </div>
     <script>
@@ -61,14 +65,53 @@
             var prefix = document.getElementById("prefix");
             prefix.value = "";
         }// enter
-        $("#prefix-form").submit(function (){
-            $(".loader").css('display','flex');
-            document.getElementById('prefix-form').submit();
-        });
+        // $("#prefix-form").submit(function (){
+        //     $(".loader").css('display','flex');
+        //     document.getElementById('prefix-form').submit();
+        // });
         //click search button
         function submit(){
+            var prefix = document.getElementById("prefix");
+            var prefix_value = prefix.value;
+            var formData = new FormData();
+            formData.append("context", prefix_value);
+            // 여기에서 빈칸인지 테스트해야함
             $(".loader").css('display','flex');
-            document.getElementById('prefix-form').submit();
+            // document.getElementById('prefix-form').submit();
+            fetch(
+                "/gpt2", 
+                {
+                    method: "POST",
+                    body : formData
+                }
+            )
+            .then(response => {
+                console.log("RECEIVE");
+                if(response.status == 200){
+                    console.log("RECEIVE");
+                    return response;
+                }
+                else if(response.status == 400){
+                    throw Error("Failed1");
+                }
+                else {
+                    throw Error("Failed");
+                }
+            })
+            .then(response => response.json())
+            .then(response => {
+                var result = document.getElementsByClassName("result");
+                result.innerHTML = response['text'] + "\nNow it's your turn!\n\n\n";
+                
+            })
+            // .then(text => {
+            //     var result = document.getElementsByClassName("result");
+            //     result.innerHTML = text + "\nNow it's your turn!\n\n\n";
+            // })
+            .catch(e => {
+                var result = document.getElementsByClassName("result");
+                result.innerHTML = e;
+            })
         }
     </script>
 </body>
