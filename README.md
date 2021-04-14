@@ -1,5 +1,5 @@
 # Ghostwriter Kant
-[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://master-kant-dleunji.endpoint.ainize.ai/)<br>
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize-kant-dleunji.endpoint.ainize.ai)<br>
 
 ![스크린샷 2021-03-24 오전 11 03 03](https://user-images.githubusercontent.com/46207836/112243495-00699c80-8c91-11eb-9da5-b46d10e61593.png)
 [임마누엘 칸트](https://ko.wikipedia.org/wiki/임마누엘_칸트)는 도덕, 이상, 형이상학 등 다양한 주제를 다루는 위대한 철학자압나다.<br>
@@ -18,52 +18,69 @@
 <br>
 
 ## How to Make
-1. [GPT-2 simple model](https://github.com/minimaxir/gpt-2-simple)에 칸트의 '순수이성비판'을 학습시켜 모델을 생성합니다.<br>
-원활한 데이터 학습을 위해 Google colab을 사용하였습니다.<br>
-~~https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing~~ <br>
-PREFIX, SECTION, CHAPTER과 같은 불필요한 내용을 제거하기 위해 텍스트파일을 다시 전처리하여 모델을 생성하였습니다.
-https://colab.research.google.com/drive/1jhSklYNs17FF5GvlLKs7JCjzkBDbfBrq?usp=sharing<br>
-
-2. 해당 모델을 통해 length=300인 글을 추출하였습니다.
-
-```python
-import gpt_2_simple as gpt2
-import os
-import requests
-
-sess = gpt2.start_tf_sess()
-gpt2.load_gpt2(sess)
-...
-essay = gpt2.generate(sess,prefix=prefix, length=300, return_as_list=True)[0]
+1. 칸트의 순수이성비판을 전처리하여 불필요한 기호와 문자들을 제거하였습니다.
+ https://colab.research.google.com/drive/1jhSklYNs17FF5GvlLKs7JCjzkBDbfBrq?usp=sharing
 ```
-## Getting Started 
+ § 5. Metaphysical Exposition of this Conception.
+
+ § 6. Transcendental Exposition of the Conception of Time.
+
+ § 7. Conclusions from the above Conceptions.
+
+ § 8. Elucidation.
+
+ § 9. General Remarks on Transcendental Æsthetic.
+
+ § 10. Conclusion of the Transcendental Æsthetic.
 ```
-pip install gpt_2_simple
+```
+                      NOTHING
+                        AS
+
+                        1
+                As Empty Conception
+                 without object,
+                  _ens rationis_
+           2                               3
+     Empty object of               Empty intuition
+      a conception,                without object,
+     _nihil privativum              ens imaginarium_
+                        4
+                   Empty object
+                 without conception,
+                  _nihil negativum_
+                  
 ```
 
-✅ 영어만 사용가능합니다. <br>
-✅ Finetuned Model을 직접 사용하기 때문에 로딩 시간이 소요됩니다. <br>
-✅ Chrome 사용을 권장합니다<br>
-✅ `git clone`을 통한 로컬 구동은 어렵습니다. 용량의 문제로 Finetuned Model을 Github에 업로드하지 않았기 때문입니다.<br>
+2. 전처리된 파일 하나만으로 Teachable NLP를 활용하여 편리하게 GPT-2모델을 Finetuing하였습니다.<br>
+Model_url = https://train-avgw7n5kbmsb7wrip2a8-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/gpt-2-en-small-finetune
 
+2. 해당 모델에 prefix를 `form-data` 형식의 request를 보내면, response로 다음 내용이 이어집니다.<br>
 
-## Prerequisites
+## e.g. 
+### REQUEST
+```JSON
+{
+    "context" : "The demon"
+}
 ```
-Flask==1.1.2
-gpt-2-simple==0.7.2
-requests==2.25.1
-tensorflow==1.15.0
+### RESPONSE
+
+
+```JSON
+{
+    "text": "The demon is merely an appearance, and never a thing that is absolutely\nin itself necessary. If I make abstraction of the relation of\nphenomena in space (as in the representation of a body), there can exist no\nthing that is absolutely necessary. But the mere fact of an existence\nwhich is absolutely necessary is not to be found in any perception\nitself, or in any intuition corresponding to it, except in so far\nas the existence of that which is immediately presupposed in the perception\nis itself the immediate consequence of some other existence. Now as this\ndetermination of the existence of things is possible only under the\npresupposition of a given existence (for example, that the body has\nlength that is possible only by means of a straight line), the existence\nof the thing which is immediately presupposed to be necessary is a proposition\nwhich requires deeper insight into the subject than the mere conception of\na thing in itself. Now this is all well and good,"
+}
 ```
 
 ## Deployment 
-
 - Docker 
 - Ainize
 <br>
 
 ## Acknowledgments
 
-* 데이터 학습량이 부족한지, 칸트가 공허한 말을 자주 합니다. <br>하지만 현재로도 이미 버거운 상태이기 때문에, 추가적인 학습를 진행하지 않았습니다.
+* 데이터 학습량이 부족한지, 칸트가 공허한 말을 자주 합니다. <br> 하지만 현재로도 이미 버거운 상태이기 때문에, 추가적인 학습를 진행하지 않았습니다.
 
 * 백문이불여일견, 직접 서버에 프로젝트를 올리면서 **효율적인 서버 관리**의 중요성을 알게되었습니다.. 
 
@@ -87,3 +104,12 @@ tensorflow==1.15.0
 2. 이외에도 체감되는 지연 시간을 줄이기 위해 로딩 바를 생성하였습니다. 내용과 적절히 어울리는 "I'm thinking "문구를 곁들여 프로그램과 어울리도록 하였습니다.
 
 3. 기존의 모델에 불필요한 텍스트가 섞여 있었습니다. 이를 개선하기 위해 파이썬을 통해 텍스트파일을 전처리한 후, 재학습하였습니다.
+
+## 2021.04.14 개선 일지
+1. Teachable NLP로 모델이 만들어진 후 자동적으로 서버에 업로드 됨으로써 간편하게 모델을 활용할 수 있습니다.
+
+2. 해당 모델을 활용하여 [TabTab](https://kubecon-tabtab-ainize-team.endpoint.ainize.ai/?modelUrl=https://train-avgw7n5kbmsb7wrip2a8-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/gpt-2-en-small-finetune)에서도 체험이 가능합니다.
+
+
+
+
