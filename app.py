@@ -3,6 +3,9 @@ import requests
 #import gpt_2_simple as gpt2
 import json
 import os
+from transformers import AutoTokenizer
+
+autoTokenizer = AutoTokenizer.from_pretrained("gpt2-large")
 # os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 app = Flask(__name__, static_url_path='/static')
@@ -13,43 +16,27 @@ app = Flask(__name__, static_url_path='/static')
 @app.route('/gpt2', methods=['POST'])
 def gpt2():
     prefix = request.form['context']
-    print(prefix)
-    if prefix == "":
-        # 입력하라는 메세지 추가
-        return render_template('index.html', result = None)
-    else:
-        text = prefix
-        url = "https://kubecon-tabtab-ainize-team.endpoint.ainize.ai/url"
-        for i in range(5):
-            start = prefix
-            data = {
-                'context' : start,
-                'length' : 'long',
-                'model' : 'https://train-avgw7n5kbmsb7wrip2a8-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/gpt-2-en-small-finetune'
-            }
-            response = requests.post(url, data = data)
-            res = response.json()
-            text += res['0']
-            prefix = res['0']
-        print(res)
+    encodedText = autoTokenizer.encode(prefix)
+    print(encodedText)
+    headers = {'Content-Type' : 'application/json; charset=utf-8'}
+    data = {
+        'text' : encodedText,
+        'length' : 200,
+        'num_samples' : 1
+    }
+    url = "https://train-avgw7n5kbmsb7wrip2a8-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/gpt-2-en-small-finetune"
+    response = requests.post(url, headers = headers, data = json.dumps(data))
+    if response.status_code == 200:
+        res = response.json()
+        text = autoTokenizer.decode(res[0], skip_special_tokens=True)
         print(text)
         return jsonify({'text' : text}), 200
-    # if prefix == "":
-    #     return render_template('index.html', result=None)
-    # essay = gpt2.generate(sess,
-    #                       prefix=prefix, length=150, return_as_list=True)[0]
-    # print(essay)
-    # data = {"essay": essay}
-    # return render_template('index.html', result=data)
+    else:
+        return jsonify({'fail' : 'eror'}), response.status_code
 
 @app.route('/', methods=['GET'])
 def main():
-    if request.method == 'GET':
-        return render_template('index.html', result=None)
-    else : 
-        return render_template('index.html', result=None)
-
-
+    return render_template('index.html', result=None)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
