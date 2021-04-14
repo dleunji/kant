@@ -7,10 +7,10 @@ info:
     Just let him know how to get started.
   contact:
     name: dleunji
-  version: "1.0"
+  version: 1.0.0
 
 servers:
-  - url: https://kubecon-tabtab-ainize-team.endpoint.ainize.ai
+  - url: https://ainize-kant-dleunji.endpoint.ainize.ai
 
 paths:
   /gpt2:
@@ -18,7 +18,7 @@ paths:
       requestBody:
         required: true
         description: | 
-          Specify a length of the text and set the start prompt for the text to be generated.
+          Just let him know how to get started like prefix. 
         content:
           multipart/form-data:
             schema:
