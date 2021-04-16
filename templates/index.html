@@ -34,15 +34,14 @@
             </div>
             <div class="search-box">
                 <div class="prefix-box">
-                    <!-- <form method="POST" action="/" id="prefix-form"> -->
                     <input type="text" id="prefix" name="prefix" placeholder="It starts with..." required>
                     <div class="search-btn" id="search" type="submit" onclick="submit()">
+                        <!-- 검색버튼 -->
                         <i class="fas fa-search"></i>
                     </div>
                     <div type="button" class="cancel-btn" id="reset" onclick="reset()">
                         <i class="fas fa-times"></i>
                     </div>
-                    <!-- </form> -->
                 </div>
             </div>
         </div>
@@ -55,8 +54,12 @@
             prefix.value = "";
         }
         // enter
-        $("#prefix-form").submit(()=>{
-            submit();
+        var input = document.getElementById("prefix");
+        input.addEventListener("keyup", function(event) {
+            if(event.keyCode == 13){
+                event.preventDefault();
+                document.getElementById("search").click();
+            }
         });
         //click search button
         function submit(){
@@ -68,7 +71,6 @@
             }
             var formData = new FormData();
             formData.append("context", prefix_value);
-            // 여기에서 빈칸인지 테스트해야함
             $(".loader").css('display','flex');
 
             fetch(
@@ -100,7 +102,7 @@
                 document.getElementsByClassName("essay")[0].innerHTML = text;
             })
             .catch(e => {
-                var result = document.getElementsByClassName("essay");
+                var result = document.getElementsByClassName("essay")[0];
                 result.textContent = e;
             })
         }
