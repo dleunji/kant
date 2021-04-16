@@ -18,7 +18,7 @@ def gpt2():
         'text' : encodedText,
         'length' : 200
     }
-    url = "https://train-avgw7n5kbmsb7wrip2a8-gpt2-train-teachable-ainize.endpoint.dev.ainize.ai/predictions/gpt-2-en-small-finetune"
+    url = "https://train-s00d3dalorjg7ef3dih8-gpt2-train-teachable-ainize.endpoint.ainize.ai/predictions/gpt-2-en-small-finetune"
     response = requests.post(url, headers = headers, data = json.dumps(data))
     if response.status_code == 200:
         res = response.json()
