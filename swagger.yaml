@@ -1,67 +1,43 @@
 openapi: 3.0.1
+
 info:
   title: Ghostwriter Kant
-  description: Using GPT-2, create a philosophical paper like Immanuel Kant.<br> Just
-    let him know how to get started.
+  description: |
+    Using GPT-2, create a philosophical paper like Immanuel Kant.<br> 
+    Just let him know how to get started.
+  contact:
+    name: dleunji
   version: 1.0.0
-externalDocs:
-  description: Docker images for Ghostwriter Kant
-  url: https://hub.docker.com/repository/docker/dleunji/ghostwriter
+
 servers:
-- url: https://master-kant-dleunji.endpoint.ainize.ai/
-tags:
-- name: Create Essay
+  - url: https://ainize-kant-dleunji.endpoint.ainize.ai
+
 paths:
-  /:
-    get:
-      tags:
-      - Create Essay
-      summary: Get the essay from Kant
-      parameters:
-      - name: result
-        in: query
-        description: If it is none, he writes nothing.
-        required: false
-        schema:
-          type: object
-          properties:
-            result :
-              type: string
-      responses:
-        200:
-          description: Successful Operation
-        400:
-          description: Bad Request Error
-        500:
-          description: Server-side Error
+  /gpt2:
     post:
-      tags:
-      - Create Essay
-      summary: Give a prefix of essay to Kant
       requestBody:
-        description: The length and Model is fixed, so just let him know the prefix.
-        content:
-          application/json:
-            schema:
-              type : object
-              properties:
-                prefix:
-                  type : string
-                  description : "A prefix of essay"
-              required:
-              - prefix
         required: true
+        description: | 
+          Just let him know how to get started like prefix. 
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                context:
+                  type: string
       responses:
-        200:
-          description: Successful Response
-          content: 
+        '200':
+          description: success
+          content:
             application/json:
               schema:
                 type: object
-                properties:
-                  result :
-                    type: string
-        400:
-          description: Bad Request Error
-        500:
-          description: Server-side Error
+        '400':
+          description: Bad Request
+        
+        '429':
+          description: Busy to server, please retry again.
+
+        '500':
+          description: Server side error
