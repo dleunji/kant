@@ -44,7 +44,7 @@ body{
 .essay {
     margin: 1rem 1rem 0 1rem;
     font-family: 'Caveat',cursive;
-    font-size : 1.4rem;
+    font-size : 130%;
 }
 
 .search-box{
@@ -177,7 +177,7 @@ body{
       .page {
         display : block;
       }
-      .help {
+      .help{
         margin-left : 0rem;
       }
       .explanation {
@@ -196,12 +196,17 @@ body{
     .title {
         font-size : 400%;
     }
-    .help {
+    .help .essay{
         font-size : 100%
     }
     .cancel-btn{
         display: none;
     }
+    .search-btn {
+        left : 0%;
+        right : 5%;
+    }
+
   }
   @media (max-width:270px){
     .title {
