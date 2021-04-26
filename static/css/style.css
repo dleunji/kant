@@ -208,3 +208,7 @@ body{
         font-size : 300%;
     }
   }
+
+::-webkit-input-placeholder {
+    font-family: 'Caveat',cursive;
+}
