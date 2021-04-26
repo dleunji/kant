@@ -16,7 +16,7 @@ body{
 }
 .title{
     font-family: 'Tangerine';
-    font-size: 9rem;
+    font-size: 700%;
     text-align: center;
 }
 .contents{
@@ -39,7 +39,7 @@ body{
 .help {
     margin-left: 3rem;
     font-family: 'Caveat',cursive;
-    font-size : 1.4rem;
+    font-size : 130%;
 }
 .essay {
     margin: 1rem 1rem 0 1rem;
@@ -79,8 +79,8 @@ body{
     top:50%;
     left : 75%;
     transform: translateY(-50%);
-    height:50px;
-    width:50px;
+    height: 50px;
+    width: 50px;
     color : #fff;
     background-color: #C1B5A9;
     line-height: 50px;
@@ -93,7 +93,7 @@ body{
 .prefix-box .cancel-btn{
     position: absolute;
     top:50%;
-    right: -2%;
+    left : 95%;
     transform: translateY(-50%);
     color:#fff;
     cursor: pointer;
@@ -165,4 +165,46 @@ body{
       70%{width: 100%; opacity: 1;}
       90%{opacity: 0; width: 100%;}
       100%{opacity: 0;width: 0px;}
+  }
+
+  @media (max-width:900px) {
+      .title {
+        font-size : 500%;
+      }
+      .explanation {
+        flex-direction: column;
+      }
+      .page {
+        display : block;
+      }
+      .help {
+        margin-left : 0rem;
+      }
+      .explanation {
+        margin-left : 0rem;
+        text-align: center;
+      }
+      .image {
+        display: flex;
+      }
+      .kant {
+        justify-content: center;
+      }
+  }
+
+  @media (max-width:670px){
+    .title {
+        font-size : 400%;
+    }
+    .help {
+        font-size : 100%
+    }
+    .cancel-btn{
+        display: none;
+    }
+  }
+  @media (max-width:270px){
+    .title {
+        font-size : 300%;
+    }
   }
