@@ -168,7 +168,7 @@ body{
       100%{opacity: 0;width: 0px;}
   }
 
-  @media (max-width:900px) {
+  @media (max-width:900px){
       .title {
         font-size : 500%;
       }
