@@ -40,7 +40,7 @@ body{
 .help {
     margin-left: 3rem;
     font-family: 'Caveat',cursive;
-    font-size : 1.6rem
+    font-size : 2rem
 }
 .essay {
     margin: 1rem 1rem 0 1rem;
@@ -179,7 +179,7 @@ input[type="text"] {
           padding: 2rem;
       }
       .title {
-          font-size : 600%;
+          font-size : 5rem;
       }
       .explanation {
         flex-direction: column;
@@ -216,112 +216,7 @@ input[type="text"] {
         left : 60%!important;
       }
   }
-  /* @media (max-width:900px) and (min-width:671px){
-      .title {
-        font-size : 500%;
-      }
-      .explanation {
-        flex-direction: column;
-      }
-      .page {
-        display : block;
-      }
-      .help{
-        margin-left : 0rem;
-      }
-      .explanation {
-        text-align: center;
-      }
-      .image {
-        display: flex;
-      }
-      .kant {
-        justify-content: center;
-      }
-  }
-
-  @media (max-width:670px)and (min-width:451px){
-    .title {
-        font-size : 400%;
-    }
-    .explanation {
-        flex-direction: column;
-        text-align: center;
-    }
-    .page {
-        display : block;
-        padding : 2.5rem;
-    }
-    .help{
-        margin-left : 0rem;
-        font-size : 1.2rem;
-    }
-    .essay {
-        font-size : 1.2rem;
-    }
-    .image {
-        display: flex;
-    }
-    .kant {
-        justify-content: center;
-    }
-    .cancel-btn{
-        display: none;
-    }
-    .search-btn {
-        left : 77%;
-        right : 0%;
-    }
-
-  }
-  @media (max-width: 450px) and (min-width:271px){
-    .explanation {
-        flex-direction: column;
-        text-align: center;
-    }
-    .essay {
-        font-size : 1.2rem;
-    }
-    .image {
-        display: flex;
-    }
-    .kant {
-        justify-content: center;
-    }
-    .cancel-btn{
-        display: none;
-    }
-    .search-btn {
-        left : 60%!important;
-        right : 0%;
-    }
-    .help{
-        margin-left : 0rem;
-        font-size : 1.2rem;
-    }
-    .cancel-btn{
-        display: none;
-    }
-    .page {
-        display : block;
-        padding : 1.5rem;
-    }
-    .title { 
-        font-size : 300%;
-    }
-
-
-  }
-  @media (max-width:270px){
-    .title {
-        font-size : 300%;
-    }
-    .kant {
-        width : 4rem;
-        right : 80%
-    }
-  } */
-
+  
 ::-webkit-input-placeholder {
     font-family: 'Caveat',cursive;
 }
