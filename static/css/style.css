@@ -16,7 +16,7 @@ body{
 }
 .title{
     font-family: 'Tangerine';
-    font-size: 9rem;
+    font-size: 6rem;
     text-align: center;
 }
 .contents{
@@ -28,23 +28,24 @@ body{
 .kant {
     width: 9rem;
     height: auto;
+    margin-top: 4%;
 }
 
 .explanation {
     display: flex;
     flex-direction: row;
-    margin-left: 5rem;
+    justify-content: center;
 }
 
 .help {
     margin-left: 3rem;
     font-family: 'Caveat',cursive;
-    font-size : 1.4rem;
+    font-size : 1.4rem
 }
 .essay {
-    margin: 0 3rem 0 3rem;
+    margin: 1rem 1rem 0 1rem;
     font-family: 'Caveat',cursive;
-    font-size : 1.4rem;
+    font-size : 1.6rem;
 }
 
 .search-box{
@@ -65,7 +66,7 @@ body{
 .prefix-box input{
     justify-content: center;
     height:100%;
-    width:100%;
+    width:70%;
     border:none;
     outline:none;
     background:#fff;
@@ -73,14 +74,19 @@ body{
     border-radius: 50px;
     padding:0 60px 0 20px;
 }
+input[type="text"] {
+    font-family: 'Caveat',cursive;
+    font-size : 21px;
+
+}
 
 .prefix-box .search-btn{
     position: absolute;
     top:50%;
-    left : 70%;
+    left : 75%;
     transform: translateY(-50%);
-    height:50px;
-    width:50px;
+    height: 50px;
+    width: 50px;
     color : #fff;
     background-color: #C1B5A9;
     line-height: 50px;
@@ -93,7 +99,7 @@ body{
 .prefix-box .cancel-btn{
     position: absolute;
     top:50%;
-    right: -2%;
+    left : 95%;
     transform: translateY(-50%);
     color:#fff;
     cursor: pointer;
@@ -166,3 +172,51 @@ body{
       90%{opacity: 0; width: 100%;}
       100%{opacity: 0;width: 0px;}
   }
+
+  @media (max-width : 1024px){
+      .page {
+          width : 75%;
+          padding: 2rem;
+      }
+      .title {
+          font-size : 5rem;
+      }
+      .explanation {
+        flex-direction: column;
+        text-align : center;
+      }
+      .help{
+        margin-left : 0rem;
+      }
+  }
+  @media(max-width : 512px){
+    .cancel-btn{
+        display: none;
+    }
+    .title {
+        font-size : 4rem;
+    }
+    .help {
+        font-size : 1.5rem;
+    }
+    .essay {
+        font-size : 1rem;
+    }
+  }
+  @media(max-width : 300px){
+      .search-btn{
+        left : 70%!important;
+      }
+  }
+  @media(max-width : 256px){
+    .title {
+        font-size : 3rem;
+    }
+    .search-btn{
+        left : 60%!important;
+      }
+  }
+  
+::-webkit-input-placeholder {
+    font-family: 'Caveat',cursive;
+}
