@@ -1,5 +1,6 @@
 # Ghostwriter Kant
 [![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://master-kant-dleunji.endpoint.ainize.ai/)<br>
+현재는 배포 중단했습니다.
 
 ![스크린샷 2021-03-24 오전 11 03 03](https://user-images.githubusercontent.com/46207836/112243495-00699c80-8c91-11eb-9da5-b46d10e61593.png)
 [임마누엘 칸트](https://ko.wikipedia.org/wiki/임마누엘_칸트)는 도덕, 이상, 형이상학 등 다양한 주제를 다루는 위대한 철학자압나다.<br>
