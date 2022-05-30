@@ -19,10 +19,9 @@
 
 ## How to Make
 1. [GPT-2 simple model](https://github.com/minimaxir/gpt-2-simple)에 칸트의 '순수이성비판'을 학습시켜 모델을 생성합니다.<br>
-원활한 데이터 학습을 위해 Google colab을 사용하였습니다.<br>
-~~https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing~~ <br>
+원활한 데이터 학습을 위해 아래 Google colab을 참고해 Finetuning하였습니다.<br>
+https://colab.research.google.com/drive/1HYvlny9Djt-K_D057DA6Fhjb-Yb0t8Pr?usp=sharing <br>
 PREFIX, SECTION, CHAPTER과 같은 불필요한 내용을 제거하기 위해 텍스트파일을 다시 전처리하여 모델을 생성하였습니다.
-https://colab.research.google.com/drive/1jhSklYNs17FF5GvlLKs7JCjzkBDbfBrq?usp=sharing<br>
 
 2. 해당 모델을 통해 length=300인 글을 추출하였습니다.
 
